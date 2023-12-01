@@ -185,7 +185,7 @@ def extract_info(fpath):
     return res
 
 
-def checkFile(file, model_name="RandomForest"):
+def checkFile(file, model_name):
     model_path = model_dict[model_name]
     model = joblib.load(model_path)
     features = pickle.loads(open(os.path.join('model/features.pkl'), 'rb').read())
