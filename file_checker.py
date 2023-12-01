@@ -8,7 +8,15 @@ import pickle
 import joblib
 import pefile
 
-
+model_dict = {
+    'RandomForest': 'models/RandomForest_model.pkl',
+    'DecisionTree': 'models/DecisionTree_model.pkl',
+    'KNeighbors': 'models/KNeighbors_model.pkl',
+    'AdaBoost': 'models/AdaBoost_model.pkl',
+    'SGD': 'models/SGD_model.pkl',
+    'ExtraTrees': 'models/ExtraTrees_model.pkl',
+    'GaussianNB': 'models/GaussianNB_model.pkl'
+}
 def get_entropy(data):
     if len(data) == 0:
         return 0.0
@@ -177,8 +185,9 @@ def extract_info(fpath):
     return res
 
 
-def checkFile(file):
-    model = joblib.load("model/model.pkl")
+def checkFile(file, model_name="RandomForest"):
+    model_path = model_dict[model_name]
+    model = joblib.load(model_path)
     features = pickle.loads(open(os.path.join('model/features.pkl'), 'rb').read())
     data = extract_info(file)
     if data != {}:
