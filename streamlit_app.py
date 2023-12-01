@@ -3,12 +3,10 @@ import streamlit as st
 
 from file_checker import checkFile
 
-st.title("MrExeSaver")
 # ----------- Sidebar
-page = st.sidebar.selectbox('Page Navigation', ["MrExeSaver", "Model Description", "Model Performance", "Observations"])
+page = st.sidebar.selectbox('Page Navigation', ["MrExeSaver", "Model Description", "Model Performance"])
 
 st.sidebar.markdown("""---""")
-st.sidebar.write("Although it was reccommended to make the website like [coda](https://coda-dataset.github.io/index.html), I decided to make it with a diffferent look using streamlit, I did so because for the former the layout was already available and I found it to be very non-appealing. I hope you like it :smile:")
 st.sidebar.write("Made with :heart: by [Anurag](https://github.com/WhiteWolf47) [Aditya](https://github.com/WhiteWolf47) [Naman](https://github.com/WhiteWolf47)")
 if page=="MrExeSaver":
     file = st.file_uploader("Upload a file to check for malwares:", accept_multiple_files=True)
